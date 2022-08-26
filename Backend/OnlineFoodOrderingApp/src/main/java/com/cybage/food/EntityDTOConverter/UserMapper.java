@@ -1,17 +1,18 @@
 package com.cybage.food.EntityDTOConverter;
 
+import org.springframework.stereotype.Component;
+
 import com.cybage.food.dto.UserDTO;
 import com.cybage.food.entity.User;
 
+@Component
 public class UserMapper {
 	public UserDTO toUserDto(User user) {
 		UserDTO userDto = new UserDTO();
-		userDto.setUserId(user.getUserId());
 		userDto.setUserName(user.getUserName());
 		userDto.setUserEmail(user.getUserEmail());
 		userDto.setUserPassword(user.getUserPassword());
 		userDto.setUserMobileNo(user.getUserMobileNo());
-		userDto.setAttemptCount(user.getAttemptCount());
 		return userDto;
 	}
 
