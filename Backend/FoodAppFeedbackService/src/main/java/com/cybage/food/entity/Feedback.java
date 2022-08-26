@@ -1,12 +1,28 @@
 package com.cybage.food.entity;
 
-public class Feedback {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "feedback")
+public class Feedback {
+	@Id
+	@GeneratedValue
 	private int feedbackId;
 	private String feedback;
 	private int rating;
-
+	@ManyToOne
+	@JoinColumn(name = "userId")
 	private User user;
+
+	public Feedback() {
+		super();
+	}
 
 	public Feedback(int feedbackId, String feedback, int rating, User user) {
 		super();
