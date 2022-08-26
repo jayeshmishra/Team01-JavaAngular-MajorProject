@@ -14,10 +14,12 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "user")
+
 public class User {
 
 	@Id
@@ -30,11 +32,10 @@ public class User {
 	private int attemptCount;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id")
-	@JsonBackReference
 	private Address address;
+	
 	@JsonIgnore
 	@OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
-	@JsonManagedReference
 	private List<UserOrder> userOrders;
 
 	public User() {

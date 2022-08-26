@@ -1,5 +1,5 @@
 package com.cybage.food.controller;
 
-public class LoginController {
+public class AdminController {
 
 }

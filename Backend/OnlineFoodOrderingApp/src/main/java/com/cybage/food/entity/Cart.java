@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,9 +19,8 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int cartId;
-	@OneToMany(mappedBy = "foodId")
-	@JsonIgnore
-	private List<FoodItem> foodItem;
+	@ManyToMany(mappedBy = "carts")
+	private List<FoodItem> foodItems;
 	private int quantity;
 	private double totalAmount;
 	@OneToOne
@@ -33,10 +32,10 @@ public class Cart {
 		super();
 	}
 
-	public Cart(int cartId, List<FoodItem> foodItem, int quantity, double totalAmount, User user) {
+	public Cart(int cartId, List<FoodItem> foodItems, int quantity, double totalAmount, User user) {
 		super();
 		this.cartId = cartId;
-		this.foodItem = foodItem;
+		this.foodItems= foodItems;
 		this.quantity = quantity;
 		this.totalAmount = totalAmount;
 		this.user = user;
@@ -51,11 +50,11 @@ public class Cart {
 	}
 
 	public List<FoodItem> getFoodItem() {
-		return foodItem;
+		return foodItems;
 	}
 
 	public void setFoodItem(List<FoodItem> foodItem) {
-		this.foodItem = foodItem;
+		this.foodItems = foodItem;
 	}
 
 	public int getQuantity() {
@@ -84,7 +83,7 @@ public class Cart {
 
 	@Override
 	public String toString() {
-		return "Cart [cartId=" + cartId + ", foodItem=" + foodItem + ", quantity=" + quantity + ", totalAmount="
+		return "Cart [cartId=" + cartId + ", foodItem=" + foodItems + ", quantity=" + quantity + ", totalAmount="
 				+ totalAmount + ", user=" + user + "]";
 	}
 
