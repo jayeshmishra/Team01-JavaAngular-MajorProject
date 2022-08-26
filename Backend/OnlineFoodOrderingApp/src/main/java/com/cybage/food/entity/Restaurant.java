@@ -34,7 +34,7 @@ public class Restaurant {
 	@OneToMany(mappedBy = "restaurant")
 	private List<FoodItem> foodItems;
 	@JsonIgnore
-	@OneToMany(mappedBy = "restaurant", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "restaurant", fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
 	private List<UserOrder> userOrder;
 
 	public Restaurant() {

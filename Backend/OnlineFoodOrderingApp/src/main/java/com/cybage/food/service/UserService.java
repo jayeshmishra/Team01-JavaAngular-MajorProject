@@ -8,8 +8,6 @@ import com.cybage.food.entity.User;
 
 @Service
 public class UserService{
-
 	@Autowired
 	private UserRepository userDao;
-	
 }
