@@ -1,5 +1,8 @@
 package com.cybage.food.controller;
 
+import javax.validation.ConstraintViolationException;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,8 +29,8 @@ public class RegistrationLoginController {
 	OtpService otpService;
 
 	@PostMapping("/registration")
-	public ResponseEntity<UserDTO> registerUser(@RequestBody UserDTO UserDto) {
-		return new ResponseEntity<UserDTO>(registrationLoginService.registerUser(UserDto), HttpStatus.CREATED);
+	public ResponseEntity<UserDTO> registerUser(@Valid @RequestBody UserDTO UserDto) {
+		 return new ResponseEntity<UserDTO>(registrationLoginService.registerUser(UserDto), HttpStatus.CREATED);
 	}
 
 	@PostMapping("/login")
@@ -37,9 +40,9 @@ public class RegistrationLoginController {
 		UserDTO userDto = registrationLoginService.findByUserEmail(UserDto.getUserEmail());
 		if (loginUserDto == null) {
 			if (userDto.getAttemptCount() <= 3) {
-				return new ResponseEntity<>("Email or password is wrong", HttpStatus.OK);
+				return new ResponseEntity<>("Email or password is wrong", HttpStatus.BAD_REQUEST);
 			} else {
-				return new ResponseEntity<>("Your account has been blocked. contact admin", HttpStatus.OK);
+				return new ResponseEntity<>("Your account has been blocked. contact admin", HttpStatus.LOCKED);
 			}
 		} else {
 			return new ResponseEntity<>(userDto, HttpStatus.OK);

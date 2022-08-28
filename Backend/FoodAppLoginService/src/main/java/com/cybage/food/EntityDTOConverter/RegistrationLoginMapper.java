@@ -16,4 +16,8 @@ public class RegistrationLoginMapper {
 	public User toUserEntity(UserDTO userDto) {
 		return modelMapper.map(userDto, User.class);
 	}
+	
+//	public static List<UserDTO> toDTO(List<User> users){
+//		return users.stream().map(user -> toDTO(user)).collect(Collectors.toList());
+//	}
 }

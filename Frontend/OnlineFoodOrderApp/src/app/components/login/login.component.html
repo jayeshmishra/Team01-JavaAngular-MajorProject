@@ -1,1 +1,22 @@
-<p>login works!</p>
+<body>
+    <div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+        <mat-card class="box">
+            <mat-card-header>
+                <mat-card-title>Log in</mat-card-title>
+            </mat-card-header>
+            <form class="example-form" [formGroup]="loginForm">
+                <mat-card-content>
+                    <mat-form-field class="example-full-width">
+                        <input type="email" matInput placeholder="Email" formControlName="userEmail" required>
+                    </mat-form-field>
+                    <div class="error" class="text-danger" *ngIf="loginForm.controls['userEmail'].hasError('required') && loginForm.controls['userEmail'].touched">Email is required</div>
+                    <mat-form-field class="example-full-width">
+                        <input type="password" matInput placeholder="Password" formControlName="userPassword">
+                    </mat-form-field>
+                    <div class="error" class="text-danger" *ngIf="loginForm.controls['userEmail'].hasError('required') && loginForm.controls['userEmail'].touched">Email is required</div>
+                </mat-card-content>
+                <button mat-stroked-button color="accent" class="btn-block" (click)="login()">Log in</button>
+            </form>
+        </mat-card>
+    </div>
+</body>
