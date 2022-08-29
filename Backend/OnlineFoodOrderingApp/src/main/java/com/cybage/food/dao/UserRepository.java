@@ -7,4 +7,6 @@ import com.cybage.food.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
+	public User findByUserId(int userId);
+	public User findByUserEmail(String userEmail);
 }

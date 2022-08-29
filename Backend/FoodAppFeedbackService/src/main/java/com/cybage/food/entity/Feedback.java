@@ -19,17 +19,21 @@ public class Feedback {
 	@ManyToOne
 	@JoinColumn(name = "userId")
 	private User user;
+	@OneToOne
+	@JoinColumn(name = "serial_no")
+	private OrderInfo orderInfo;
 
 	public Feedback() {
 		super();
 	}
 
-	public Feedback(int feedbackId, String feedback, int rating, User user) {
+	public Feedback(int feedbackId, String feedback, int rating, User user, OrderInfo orderInfo) {
 		super();
 		this.feedbackId = feedbackId;
 		this.feedback = feedback;
 		this.rating = rating;
 		this.user = user;
+		this.orderInfo = orderInfo;
 	}
 
 	public int getFeedbackId() {
@@ -64,10 +68,18 @@ public class Feedback {
 		this.user = user;
 	}
 
+	public OrderInfo getOrderInfo() {
+		return orderInfo;
+	}
+
+	public void setOrderInfo(OrderInfo orderInfo) {
+		this.orderInfo = orderInfo;
+	}
+
 	@Override
 	public String toString() {
 		return "Feedback [feedbackId=" + feedbackId + ", feedback=" + feedback + ", rating=" + rating + ", user=" + user
-				+ "]";
+				+ ", orderInfo=" + orderInfo + "]";
 	}
 
 }

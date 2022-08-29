@@ -1,4 +1,4 @@
-package com.cybage.food.congfig;
+package com.cybage.food.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,9 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
-		http
-	    .authorizeRequests()
-	    .antMatchers("/api/foodapp/feedbackService/**").permitAll()
-	    .anyRequest().authenticated();
+			 http.csrf().disable().authorizeRequests()
+		        .antMatchers("/api/foodapp/feedbackService/**").permitAll().anyRequest().authenticated();
 	}
 }

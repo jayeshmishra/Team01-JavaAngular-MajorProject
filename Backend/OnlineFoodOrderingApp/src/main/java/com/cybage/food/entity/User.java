@@ -13,9 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -34,6 +32,7 @@ public class User {
 	private int attemptCount;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id")
+	@JsonManagedReference
 	private Address address;
 	
 	@JsonIgnore

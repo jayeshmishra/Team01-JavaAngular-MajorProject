@@ -9,20 +9,22 @@ import com.cybage.food.dao.FeedbackRepository;
 import com.cybage.food.entity.Feedback;
 
 @Service
-public class FeedbackServiceImpl{
-	
+public class FeedbackServiceImpl {
+
 	@Autowired
 	private FeedbackRepository feedbackRepository;
+
 	public List<Feedback> getAllFeedback() {
 		return feedbackRepository.findAll();
 	}
+
 	public void deleteById(int feedbackId) {
-		
+
 		feedbackRepository.deleteById(feedbackId);
 	}
+
 	public Feedback addFeedbackComment(Feedback feedback) {
-		// TODO Auto-generated method stub
-		return feedbackRepository.save(feedback) ;
+		return feedbackRepository.save(feedback);
 	}
 
 //	@Override
