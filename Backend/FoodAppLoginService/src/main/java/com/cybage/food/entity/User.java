@@ -14,7 +14,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
-	@NotBlank(message = "user name should not be blank")
+	@NotBlank
 	private String userName;
 	private String userEmail;
 	private String userPassword;

@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import com.cybage.food.EntityDTOConverter.RegistrationLoginMapper;
 import com.cybage.food.dao.RegistrationLoginRepository;
 import com.cybage.food.dto.UserDTO;
-import com.cybage.food.entity.User;
 import com.cybage.food.exception.CustomException;
 
 @Service

@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "address")
 public class Address {
@@ -17,6 +19,7 @@ public class Address {
 	private String street;
 	private String pincode;
 	@OneToOne(mappedBy = "address")
+	@JsonBackReference
 	private User user;
 	@OneToOne(mappedBy = "address")
 	private Restaurant restaurant;
