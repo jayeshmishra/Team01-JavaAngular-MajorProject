@@ -18,6 +18,15 @@ public class AddressDTO {
 		this.pincode = pincode;
 	}
 
+	
+	public AddressDTO(String area, String street, String pincode) {
+		this.area = area;
+		this.street = street;
+		this.pincode = pincode;
+		
+	}
+	
+	
 	public int getAddressId() {
 		return addressId;
 	}

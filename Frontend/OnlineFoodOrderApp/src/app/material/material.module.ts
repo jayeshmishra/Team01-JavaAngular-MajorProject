@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
-import { CdkTreeModule } from '@angular/cdk/tree';
-import { PortalModule } from '@angular/cdk/portal';
+ import { CdkTreeModule } from '@angular/cdk/tree';
+ import { PortalModule } from '@angular/cdk/portal';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -39,8 +39,8 @@ const materialModules = [
   MatDialogModule,
   MatInputModule,
   MatGridListModule,
-  CdkTreeModule,
-  PortalModule,
+   CdkTreeModule,
+   PortalModule,
   MatAutocompleteModule,
   MatButtonModule,
   MatButtonToggleModule,
