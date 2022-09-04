@@ -23,13 +23,14 @@ restaurantOwnerForm: FormGroup = this.fb.group({
 });
 errorMessage: string = ''
 statusCode: any;
-restaurantOwner: any = { restaurantEmail:'' , restaurantPassword:''};
+restaurantOwner: any = { restaurantEmail:'' , restaurantPassword:'' , restaurantUserName:''};
 restaurantLogin() {
     this.registrationLoginService.restaurantLogin(this.restaurantOwnerForm.value).subscribe(
         data => {
             this.restaurantOwner = data;
+            localStorage.setItem('restaurantOwner' , this.restaurantOwner.restaurantEmail);
             console.log(this.restaurantOwner)
-            this._matSnackBar.open(this.restaurantOwner.restaurantEmail, "close", { duration: 2000, panelClass: ['snackBar-success'], horizontalPosition: 'center', verticalPosition: 'top' });
+            this._matSnackBar.open(this.restaurantOwner.restaurantUserName, "close", { duration: 2000, panelClass: ['snackBar-success'], horizontalPosition: 'center', verticalPosition: 'top' });
             this.router.navigate(['/restaurant-menu', this.restaurantOwner.restaurantId , this.restaurantOwner.restaurantName])
           },
         error => {

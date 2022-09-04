@@ -16,4 +16,8 @@ export class FoodItemService {
   getFoodItemById(foodId:number){
     return this.httpClient.get("http://localhost:8080/api/foodapp/fooditem/getFoodItem/"+foodId);
   }
+
+  deleteFoodItem(foodId:any){
+    return this.httpClient.delete("http://localhost:8080/api/foodapp/fooditem/deleteFoodItem/"+foodId);
+  }
 }

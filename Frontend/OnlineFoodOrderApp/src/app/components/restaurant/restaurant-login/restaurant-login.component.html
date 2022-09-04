@@ -6,8 +6,7 @@
             <label for="checkbox_toggle" class="hamburger">&#9776;</label>
             <div class="menu">
                 <li><a routerLink="">Home</a></li>
-                <li><a href="/">About</a></li>
-                <li><a href="/">Contact</a></li>
+                <li><a routerLink="/about">About</a></li>
             </div>
         </ul>
     </nav>
@@ -15,7 +14,7 @@
         <div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
             <mat-card class="box">
                 <mat-card-header>
-                    <mat-card-title>Log in</mat-card-title>
+                    <mat-card-title>Restaurant Login</mat-card-title>
                 </mat-card-header>
                 <form class="example-form" [formGroup]="restaurantOwnerForm">
                     <mat-card-content>

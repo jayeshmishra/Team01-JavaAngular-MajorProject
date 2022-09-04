@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-restaurant-owner-home',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantOwnerHomeComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private router:Router) { }
+  restaurantOwner:any;
   ngOnInit(): void {
+    this.restaurantOwner = localStorage.getItem('restaurantOwner');
   }
 
+  logoutRestaurantOwner(){
+    localStorage.removeItem('restaurantOwner');
+    this.router.navigate([''])
+  }
 }

@@ -18,7 +18,9 @@ export class AllUsersComponent implements OnInit {
   userList:any;
   blockedUserList:any;
   user:any;
+  admin:any;
   ngOnInit(): void {
+    this.admin=localStorage.getItem('admin');
     this.adminService.getAllUser().subscribe(
     (data)=>{
       console.log(data);
@@ -52,5 +54,12 @@ export class AllUsersComponent implements OnInit {
       console.log(error)
     }
     )
+  }
+  logoutAdmin(){
+    
+    this._matSnackBar.open("Admin Logged Off", "close", { duration: 2000, panelClass: ['snackBar-error'], horizontalPosition: 'center', verticalPosition: 'top' });  
+    localStorage.removeItem('admin');
+    this.router.navigate([''])
+
   }
 }

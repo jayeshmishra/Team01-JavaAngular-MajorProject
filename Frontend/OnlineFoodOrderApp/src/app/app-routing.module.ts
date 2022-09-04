@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { AllRestaurantsComponent } from './components/admin/all-restaurants/all-restaurants.component';
 import { AllUsersComponent } from './components/admin/all-users/all-users.component';
@@ -13,6 +14,7 @@ import { RestaurantMenuComponent } from './components/restaurant/restaurant-menu
 import { RestaurantOwnerHomeComponent } from './components/restaurant/restaurant-owner-home/restaurant-owner-home.component';
 import { UpdateRestaurantComponent } from './components/restaurant/update-restaurant/update-restaurant.component';
 import { UserRestaurantMenuComponent } from './components/restaurant/user-restaurant-menu/user-restaurant-menu.component';
+import { OtpLoginComponent } from './components/user/otp-login/otp-login.component';
 import { UserCartComponent } from './components/user/user-cart/user-cart.component';
 import { UserOrdersComponent } from './components/user/user-orders/user-orders.component';
 const routes: Routes = [
@@ -21,6 +23,7 @@ const routes: Routes = [
   {path:"registration" , component:RegistrationComponent},
   {path:"getAllRestaurant" ,component:DashHomeComponent},
   {path:"restaurant-menu/:id/:name" , component:RestaurantMenuComponent},
+  {path:"restaurant-menu/:id" , component:RestaurantMenuComponent},
   {path:"add-restaurant" , component:AddRestaurantComponent},
   {path:"add-food-item/:id" , component:AddFoodItemsComponent},
   {path:"admin-home" , component:AdminHomeComponent},
@@ -33,6 +36,8 @@ const routes: Routes = [
   {path:"user-cart/:id/:check/:restId" , component:UserCartComponent},
   {path:"user-orders/:userId/:cart/:amount/:restId" , component:UserOrdersComponent},
   {path:"user-cart" , component:UserCartComponent},
+  {path:"about" , component:AboutUsComponent},
+  {path:"otp-login" , component:OtpLoginComponent}
 ];
 
 @NgModule({

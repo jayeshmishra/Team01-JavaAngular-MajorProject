@@ -28,6 +28,7 @@ import { UserCartComponent } from './components/user/user-cart/user-cart.compone
 import { UserOrdersComponent } from './components/user/user-orders/user-orders.component';
 import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
 import { MaterialModule } from './material/material.module';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { MaterialModule } from './material/material.module';
     OrdersComponent,
     RestaurantLoginComponent,
     UserRestaurantMenuComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
