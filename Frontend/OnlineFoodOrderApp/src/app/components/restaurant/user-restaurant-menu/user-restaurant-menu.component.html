@@ -22,7 +22,7 @@
         <mat-card-header>
           <mat-card-title  title="{{foodItem.foodName}}">{{foodItem.foodName}}</mat-card-title>
         </mat-card-header>
-        <img mat-card-image width="400" height="150" src="../../../../assets/images/FoodItems/foodItem-1.jpg" alt="Food {{foodItem.foodName}}">
+        <img mat-card-image width="300" height="150" src="../../../../assets/images/FoodItems/foodItem-1.jpg" alt="Food {{foodItem.foodName}}">
         <mat-card-content>
             <p>{{foodItem.foodCategory}}</p>
             <p>{{foodItem.foodDescription}}</p>
@@ -30,10 +30,9 @@
             <p>{{foodItem.offer}}</p>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button color="accent">Add To Cart</button>
+            <button mat-raised-button color="accent" (click)="addToCart(foodItem.foodId)">Add To Cart</button>
         </mat-card-actions>
       </mat-card>
-      
     </mat-grid-tile>
 </mat-grid-list>
 </body>

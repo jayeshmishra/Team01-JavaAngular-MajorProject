@@ -95,4 +95,8 @@ public class FoodItemService {
 		return foodItemRepository.findByOffer(offer);
 	}
 
+	public FoodItemDetailsDTO findFoodItem(int foodId) {
+		return foodItemMapper.toFoodItemDetailsDto(foodItemRepository.findByFoodId(foodId));
+	}
+
 }

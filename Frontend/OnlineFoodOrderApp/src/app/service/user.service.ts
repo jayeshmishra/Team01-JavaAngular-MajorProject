@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,10 +6,14 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  constructor() { }
+  constructor(private httpClient:HttpClient) { }
 
   userLogout(){
     console.log(localStorage.getItem('currentUser'));
-    localStorage.clear();
+    localStorage.removeItem('currentUser');
+  }
+
+  getAllOrdersOfUser(userId:any){
+    return this.httpClient.get("http://localhost:8080/api/foodapp/order/getAllOrdersForUser/"+userId);
   }
 }

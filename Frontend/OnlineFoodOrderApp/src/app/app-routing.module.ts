@@ -13,6 +13,8 @@ import { RestaurantMenuComponent } from './components/restaurant/restaurant-menu
 import { RestaurantOwnerHomeComponent } from './components/restaurant/restaurant-owner-home/restaurant-owner-home.component';
 import { UpdateRestaurantComponent } from './components/restaurant/update-restaurant/update-restaurant.component';
 import { UserRestaurantMenuComponent } from './components/restaurant/user-restaurant-menu/user-restaurant-menu.component';
+import { UserCartComponent } from './components/user/user-cart/user-cart.component';
+import { UserOrdersComponent } from './components/user/user-orders/user-orders.component';
 const routes: Routes = [
   {path:"", component:DashHomeComponent},
   {path:"login", component:LoginComponent},
@@ -27,7 +29,10 @@ const routes: Routes = [
   {path:"user-restaurant-menu/:id/:name" , component:UserRestaurantMenuComponent},
   {path:"get-all-user" , component:AllUsersComponent},
   {path:"get-all-restaurant" , component:AllRestaurantsComponent},
-  {path:"update-restaurant/:id" , component:UpdateRestaurantComponent}
+  {path:"update-restaurant/:id" , component:UpdateRestaurantComponent},
+  {path:"user-cart/:id/:check/:restId" , component:UserCartComponent},
+  {path:"user-orders/:userId/:cart/:amount/:restId" , component:UserOrdersComponent},
+  {path:"user-cart" , component:UserCartComponent},
 ];
 
 @NgModule({

@@ -6,12 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cybage.food.EntityDTOConverter.OrderMapper;
 import com.cybage.food.dao.FoodItemRepository;
 import com.cybage.food.dao.OrderInfoRepository;
 import com.cybage.food.dao.RestaurantRepository;
 import com.cybage.food.dao.UserOrderRepository;
 import com.cybage.food.dao.UserRepository;
 import com.cybage.food.dto.OrderDetailsDTO;
+import com.cybage.food.dto.OrderHistoryDTO;
 import com.cybage.food.entity.FoodItem;
 import com.cybage.food.entity.Restaurant;
 import com.cybage.food.entity.User;
@@ -34,6 +36,9 @@ public class UserOrderService {
 	
 	@Autowired
 	FoodItemRepository foodItemRepository;
+	
+	@Autowired
+	OrderMapper orderMapper;
 
 	public UserOrder placeOrder(OrderDetailsDTO orderDetails) {
 		UserOrder userOrder = new UserOrder();
@@ -50,8 +55,8 @@ public class UserOrderService {
 		return userOrderRepository.findByRestaurant(restaurant);
 	}
 
-	public List<UserOrder> getAllOrderForUser(User user) {
-		return userOrderRepository.findByUser(user);
+	public List<OrderHistoryDTO> getAllOrderForUser(User user) {
+		return orderMapper.toUserOrder(userOrderRepository.findByUser(user));
 	}
 
 	public UserOrder findUserOrderByOrderId(int orderId) {
