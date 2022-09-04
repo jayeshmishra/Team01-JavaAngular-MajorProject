@@ -1,5 +1,6 @@
 package com.cybage.food.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,24 @@ public class UserService {
 		return userRepository.save(user1);
 	}
 	
-	public List<User> findAllUsers() {
-		return userRepository.findAll();
+	public List<UserAddressDTO> findAllUsers() {
+		List<User> userList = userRepository.findAll();
+		List<UserAddressDTO> userAddressDtoList = new ArrayList<>();
+		for(int i=0 ; i<userList.size(); i++) {
+			UserAddressDTO userAddressDto = userMapper.toUserAddressDto(userList.get(i));
+			userAddressDtoList.add(userAddressDto);
+		}
+		return userAddressDtoList;
+	}
+
+	public Object findAllLockedUsers() {
+		List<User> userList = userRepository.findAll();
+		List<UserAddressDTO> blockedUserList = new ArrayList<>();
+		for(User user : userList) {
+			if(user.getAttemptCount()>=3) {
+				blockedUserList.add(userMapper.toUserAddressDto(user));
+			}
+		}
+		return blockedUserList;
 	}
 }

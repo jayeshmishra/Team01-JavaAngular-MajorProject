@@ -14,7 +14,9 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "user_order")
@@ -24,16 +26,19 @@ public class UserOrder {
 	private int orderId;
 	@ManyToOne
 	@JoinColumn(name = "user_id")
+	@JsonBackReference
 	private User user;
 	private String orderStatus;
 	@ManyToOne
 	@JoinColumn(name = "restaurant_id")
+	@JsonBackReference
 	private Restaurant restaurant;
 	private double totalAmount;
 	@DateTimeFormat(pattern = "yyyy/MM/dd hh:mm:ss")
 	private LocalDateTime orderTime;
 	@JsonIgnore
 	@OneToMany(mappedBy = "userOrder")
+	@JsonManagedReference
 	private List<OrderInfo> orderInfo;
 	@JsonIgnore
 	@OneToOne(mappedBy = "userOrder")

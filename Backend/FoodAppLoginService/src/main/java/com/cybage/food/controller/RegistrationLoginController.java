@@ -1,6 +1,5 @@
 package com.cybage.food.controller;
 
-import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,0 +1,62 @@
+<nav class="navbar">
+    <div class="logo"><img class="logo1" src="../../../../assets/icons/appicon.png">FOOD FOR YOU</div>
+    <ul class="nav-links">
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        <div class="menu">
+            <li><a routerLink="/admin-home">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">Contact</a></li>
+            <li><a routerLink="/add-restaurant">Add Restaurant</a></li>
+        </div>
+    </ul>
+</nav>
+
+<h1 class="pageName">Restaurant Information</h1>
+<table mat-table [dataSource]="restaurantList" class="mat-elevation-z8">
+    <ng-container matColumnDef="restaurantId">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element"> {{element.restaurantId}} </td>
+    </ng-container>
+    <ng-container matColumnDef="restaurantName">
+        <th mat-header-cell *matHeaderCellDef>NAME</th>
+        <td mat-cell *matCellDef="let element"> {{element.restaurantName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="restaurantUserName">
+        <th mat-header-cell *matHeaderCellDef>OWNER NAME</th>
+        <td mat-cell *matCellDef="let element"> {{element.restaurantUserName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="restaurantEmail">
+        <th mat-header-cell *matHeaderCellDef>OWNER EMAIL</th>
+        <td mat-cell *matCellDef="let element"> {{element.restaurantEmail}} </td>
+    </ng-container>
+    <ng-container matColumnDef="distance">
+        <th mat-header-cell *matHeaderCellDef>DISTANCE</th>
+        <td mat-cell *matCellDef="let element"> {{element.distance}} </td>
+    </ng-container>
+    <ng-container matColumnDef="area">
+        <th mat-header-cell *matHeaderCellDef>AREA</th>
+        <td mat-cell *matCellDef="let element"> {{element.area}} </td>
+    </ng-container>
+    <ng-container matColumnDef="street">
+        <th mat-header-cell *matHeaderCellDef>STREET</th>
+        <td mat-cell *matCellDef="let element"> {{element.street}} </td>
+    </ng-container>
+    <ng-container matColumnDef="pincode">
+        <th mat-header-cell *matHeaderCellDef>PINCODE</th>
+        <td mat-cell *matCellDef="let element"> {{element.pincode}} </td>
+    </ng-container>
+    <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element"><button mat-raised-button class="accent" (click)="updateRestaurant(element.restaurantId)">Update</button></td>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element"><button mat-raised-button class="warn" (click)="deleteRestaurant(element.restaurantId)">Delete</button></td>
+    </ng-container>
+   
+     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+    

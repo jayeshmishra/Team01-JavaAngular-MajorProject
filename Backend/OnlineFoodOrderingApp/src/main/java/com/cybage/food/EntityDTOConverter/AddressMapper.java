@@ -4,9 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 import com.cybage.food.dto.AddressDTO;
-import com.cybage.food.dto.UserAddressDTO;
 import com.cybage.food.entity.Address;
-import com.cybage.food.entity.User;
 
 @Component
 public class AddressMapper {

@@ -22,6 +22,7 @@ public class Address {
 	@JsonBackReference
 	private User user;
 	@OneToOne(mappedBy = "address")
+	@JsonBackReference
 	private Restaurant restaurant;
 
 	public Address() {
@@ -36,6 +37,12 @@ public class Address {
 		this.pincode = pincode;
 		this.user = user;
 		this.restaurant = restaurant;
+	}
+
+	public Address(String area2, String street2, String pincode2) {
+		this.area=area2;
+		this.street=street2;
+		this.pincode=pincode2;
 	}
 
 	public int getAddressId() {
@@ -89,7 +96,7 @@ public class Address {
 	@Override
 	public String toString() {
 		return "Address [addressId=" + addressId + ", area=" + area + ", street=" + street + ", pincode=" + pincode
-				+ ", user=" + user + ", restaurant=" + restaurant + "]";
+				+ ", restaurant=" + restaurant + "]";
 	}
 
 }

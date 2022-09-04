@@ -1,0 +1,38 @@
+<body>
+    <nav class="navbar">
+        <div class="logo"><img class="logo1" src="../../../../assets/icons/appicon.png">FOOD FOR YOU</div>
+        <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+            <div class="menu">
+                <li><a routerLink="">Home</a></li>
+                <li><a href="/">About</a></li>
+                <li><a href="/">Contact</a></li>
+            </div>
+        </ul>
+    </nav>
+    
+        <div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+            <mat-card class="box">
+                <mat-card-header>
+                    <mat-card-title>Log in</mat-card-title>
+                </mat-card-header>
+                <form class="example-form" [formGroup]="restaurantOwnerForm">
+                    <mat-card-content>
+                        <mat-form-field class="example-full-width">
+                            <input type="email" matInput placeholder="Email" formControlName="restaurantEmail" required>
+                        </mat-form-field>
+                        <div class="error" class="text-danger" *ngIf="restaurantOwnerForm.controls['restaurantEmail'].hasError('required') && restaurantOwnerForm.controls['restaurantEmail'].touched">Email is required</div>
+                        <mat-form-field class="example-full-width">
+                            <input type="password" matInput placeholder="Password" formControlName="restaurantPassword">
+                        </mat-form-field>
+                        <div class="error" class="text-danger" *ngIf="restaurantOwnerForm.controls['restaurantPassword'].hasError('required') && restaurantOwnerForm.controls['restaurantPassword'].touched">Password is required</div>
+                        <div class="error" class="text-danger" *ngIf="restaurantOwnerForm.controls['restaurantPassword'].hasError('required') && restaurantOwnerForm.controls['restaurantPassword'].hasError('minLength')">Password is too short</div>
+                    </mat-card-content>
+                    <button mat-stroked-button type="button" color="accent" class="btn-block" (click)="restaurantLogin()" [disabled]="!restaurantOwnerForm.valid">Log in</button>
+                </form>
+            </mat-card>
+        </div>
+    </body>
+    
+    
