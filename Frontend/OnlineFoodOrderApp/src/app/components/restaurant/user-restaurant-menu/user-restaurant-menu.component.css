@@ -1,0 +1,202 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: cursive;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: black;
+  color: #fff;
+}
+
+.nav-links a {
+  color: #fff;
+}
+
+.logo {
+  font-size: 32px;
+}
+
+.menu {
+  display: flex;
+  gap: 1em;
+  font-size: 18px;
+}
+
+.menu li:hover {
+  background-color: #000000;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.menu li {
+  padding: 5px 14px;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    position: absolute;
+    background-color: teal;
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 16px 0;
+    margin-top: 20px;
+  }
+  .menu li:hover {
+    display: inline-block;
+    background-color: #4c9e9e;
+    transition: 0.3s ease;
+  }
+  .menu li + li {
+    margin-top: 12px;
+  }
+  input[type=checkbox]:checked ~ .menu {
+    display: block;
+  }
+  .hamburger {
+    display: block;
+  }
+  .dropdown {
+    left: 50%;
+    top: 30px;
+    transform: translateX(35%);
+  }
+  .dropdown li:hover {
+    background-color: #4c9e9e;
+  }
+}
+.logo1 {
+  width: 50px;
+  height: 50px;
+}
+
+.banner {
+  background-image: url("../../../../assets/images/pexels-pixabay-54455.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 45%;
+}
+
+.banner h1 {
+  color: orangered;
+  text-align: center;
+  padding-top: 10%;
+  font-style: italic;
+}
+
+.hotel-container {
+  background: #e8dada;
+}
+.hotel-container .menu-bar {
+  background: plum;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hotel-container .menu-bar .tagline {
+  font-size: 27px;
+  padding-left: 1%;
+  text-transform: uppercase;
+}
+.hotel-container .menu-bar .filters {
+  padding: 1%;
+}
+.hotel-container .menu-bar .filters app-search-bar {
+  margin-right: 35px;
+}
+.hotel-container .hotel-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  padding: 1%;
+  box-sizing: border-box;
+}
+.hotel-container .hotel-cards .hotel {
+  display: flex;
+  flex-basis: 25%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.hotel-container .empty-search {
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+h3 {
+  margin: 0 !important;
+}
+
+::ng-deep .swal2-title {
+  font-size: 30px !important;
+  font-weight: 600 !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .menu-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .menu-bar .tagline {
+    font-size: 20px !important;
+  }
+  .menu-bar .filters {
+    display: flex;
+  }
+  .hotel-cards {
+    flex-direction: column;
+  }
+}
+mat-grid-list {
+  background-image: url("../../../../assets/images/Restauarants/pexels-valeria-boltneva-1833349.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+body {
+  background-color: aquamarine;
+}
+
+mat-card {
+  width: 300px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 30px;
+  color: rebeccapurple;
+  font-family: sans-serif;
+}
+/*# sourceMappingURL=user-restaurant-menu.component.css.map */

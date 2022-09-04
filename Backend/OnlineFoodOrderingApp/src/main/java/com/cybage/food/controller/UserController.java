@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
+import com.cybage.food.EntityDTOConverter.UserMapper;
 import com.cybage.food.dto.AddressDTO;
 import com.cybage.food.dto.UserAddressDTO;
 import com.cybage.food.dto.UserDTO;
 import com.cybage.food.entity.User;
-import com.cybage.food.exception.CustomException;
 import com.cybage.food.service.UserService;
 
 @CrossOrigin("*")
@@ -33,6 +33,9 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	UserMapper userMapper;
 
 	@PostMapping("/registration")
 	public ResponseEntity<UserDTO> registerUser(@RequestBody UserDTO userDto) {
@@ -42,8 +45,10 @@ public class UserController {
 
 	@PostMapping("/login")
 	public ResponseEntity<String> userLogin(@RequestBody UserDTO userDto) {
+	
 		try {
 			String url = "http://localhost:8082/api/foodapp/loginService/login";
+		
 			return (ResponseEntity<String>) restTemplate.postForEntity(url, userDto, String.class);
 		} catch (HttpStatusCodeException ex) {
 			if (ex.getRawStatusCode() == 404)
@@ -63,7 +68,7 @@ public class UserController {
 
 	@GetMapping("/validateOTP/{otp}/{email}")
 	public ResponseEntity<String> validateOtp(@PathVariable int otp, @PathVariable String email) {
-		String url = "http://localhost:8082/api/foodapp/loginService/ validateOTP/" + otp + "/" + email;
+		String url = "http://localhost:8082/api/foodapp/loginService/validateOTP/" + otp + "/" + email;
 		return (ResponseEntity<String>) restTemplate.getForEntity(url, String.class);
 	}
 
@@ -80,22 +85,21 @@ public class UserController {
 
 	@GetMapping("/getUserById/{id}")
 	public ResponseEntity<?> getUserById(@PathVariable int id){
-		System.out.println("Hello");
 		User user = userService.findByUserId(id);
 		if (user == null) 
 			return new ResponseEntity<>("User Not Found" , HttpStatus.NOT_FOUND);
-		return new ResponseEntity<>(user, HttpStatus.OK);
+		return new ResponseEntity<>(userMapper.toUserAddressDto(user), HttpStatus.OK);
 	}
 
 	@GetMapping("/getUserByEmail/{email}")
 	public ResponseEntity<?> getUserByEmailId(@PathVariable String email) {
 		User user = userService.findByUserEmail(email);
-		return new ResponseEntity<>(user, HttpStatus.OK);
+		return new ResponseEntity<>(userMapper.toUserAddressDto(user), HttpStatus.OK);
 	}
 
 	@GetMapping("/allUser")
-	public ResponseEntity<List<User>> getAllUser() {
-		List<User> list = userService.findAllUsers();
-		return new ResponseEntity<List<User>>(list, HttpStatus.OK);
+	public ResponseEntity<List<UserAddressDTO>> getAllUser() {
+		List<UserAddressDTO> list = userService.findAllUsers();
+		return new ResponseEntity<List<UserAddressDTO>>(list, HttpStatus.OK);
 	}
 }

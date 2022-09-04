@@ -37,6 +37,7 @@ public class User {
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+	@JsonManagedReference
 	private List<UserOrder> userOrders;
 
 	public User() {

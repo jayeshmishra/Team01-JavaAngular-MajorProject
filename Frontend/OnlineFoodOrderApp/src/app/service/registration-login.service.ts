@@ -1,6 +1,5 @@
-import { HttpClient , HttpParams} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { IUser } from '../utility/IUser';
 
 @Injectable({
@@ -8,7 +7,7 @@ import { IUser } from '../utility/IUser';
 })
 export class RegistrationLoginService {
 
-  constructor(private _httpClient:HttpClient , public _matSnackBar:MatSnackBar) { }
+  constructor(private _httpClient:HttpClient) { }
 
   registration(user:any){
     return this._httpClient.post<any>("http://localhost:8080/api/foodapp/registration" , user );
@@ -16,6 +15,10 @@ export class RegistrationLoginService {
 
   login(user:any){
     return this._httpClient.post<IUser>("http://localhost:8080/api/foodapp/login" , user );
+  }
+
+  restaurantLogin(restaurantOwner:any){
+    return this._httpClient.post<any>("http://localhost:8080/api/foodapp/rest/login" , restaurantOwner );
   }
 }
 

@@ -1,0 +1,39 @@
+<body>
+<nav class="navbar">
+    <div class="logo"><img class="logo1" src="../../../../assets/icons/appicon.png">FOOD FOR YOU</div>
+    <ul class="nav-links">
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        <div class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">Contact</a></li>
+         
+        </div>
+    </ul>
+</nav>
+<br>
+<h1>{{restaurantName}}</h1>
+
+<mat-grid-list cols="3">
+
+    <mat-grid-tile *ngFor="let foodItem of foodItemList">
+    <mat-card >
+        <mat-card-header>
+          <mat-card-title  title="{{foodItem.foodName}}">{{foodItem.foodName}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image width="400" height="150" src="../../../../assets/images/FoodItems/foodItem-1.jpg" alt="Food {{foodItem.foodName}}">
+        <mat-card-content>
+            <p>{{foodItem.foodCategory}}</p>
+            <p>{{foodItem.foodDescription}}</p>
+            <p>{{foodItem.price}}</p>
+            <p>{{foodItem.offer}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="accent">Add To Cart</button>
+        </mat-card-actions>
+      </mat-card>
+      
+    </mat-grid-tile>
+</mat-grid-list>
+</body>

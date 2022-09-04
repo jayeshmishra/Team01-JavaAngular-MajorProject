@@ -13,13 +13,14 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "restaurant")
 public class Restaurant {
 	@Id
 	@GeneratedValue
-	private int restId;
+	private int restaurantId;
 	private String restaurantName;
 	private String restaurantUserName;
 	private String restaurantPassword;
@@ -29,23 +30,25 @@ public class Restaurant {
 	private String distance;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id")
+	@JsonManagedReference
 	private Address address;
+
+	@OneToMany(mappedBy = "restaurant" , fetch = FetchType.LAZY , cascade = CascadeType.REMOVE)
 	@JsonIgnore
-	@OneToMany(mappedBy = "restaurant")
 	private List<FoodItem> foodItems;
 	@JsonIgnore
-	@OneToMany(mappedBy = "restaurant", fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "restaurant", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private List<UserOrder> userOrder;
 
 	public Restaurant() {
 		super();
 	}
 
-	public Restaurant(int restId, String restaurantName, String restaurantUserName, String restaurantPassword,
+	public Restaurant(int restaurantId, String restaurantName, String restaurantUserName, String restaurantPassword,
 			String restaurantEmail, String thumbnail, int attemptCount, String distance, Address address,
 			List<FoodItem> foodItems, List<UserOrder> userOrder) {
 		super();
-		this.restId = restId;
+		this.restaurantId = restaurantId;
 		this.restaurantName = restaurantName;
 		this.restaurantUserName = restaurantUserName;
 		this.restaurantPassword = restaurantPassword;
@@ -58,12 +61,12 @@ public class Restaurant {
 		this.userOrder = userOrder;
 	}
 
-	public int getRestId() {
-		return restId;
+	public int getRestaurantId() {
+		return restaurantId;
 	}
 
-	public void setRestId(int restId) {
-		this.restId = restId;
+	public void setRestaurantId(int restaurantId) {
+		this.restaurantId = restaurantId;
 	}
 
 	public String getRestaurantName() {
@@ -148,10 +151,11 @@ public class Restaurant {
 
 	@Override
 	public String toString() {
-		return "Restaurant [restId=" + restId + ", restaurantName=" + restaurantName + ", restaurantUserName="
-				+ restaurantUserName + ", restaurantPassword=" + restaurantPassword + ", restaurantEmail="
-				+ restaurantEmail + ", thumbnail=" + thumbnail + ", attemptCount=" + attemptCount + ", distance="
-				+ distance + ", address=" + address + ", foodItems=" + foodItems + ", userOrder=" + userOrder + "]";
+		return "Restaurant [restaurantId=" + restaurantId + ", restaurantName=" + restaurantName
+				+ ", restaurantUserName=" + restaurantUserName + ", restaurantPassword=" + restaurantPassword
+				+ ", restaurantEmail=" + restaurantEmail + ", thumbnail=" + thumbnail + ", attemptCount=" + attemptCount
+				+ ", distance=" + distance + ", address=" + address + ", foodItems=" + foodItems + ", userOrder="
+				+ userOrder + "]";
 	}
 
 }

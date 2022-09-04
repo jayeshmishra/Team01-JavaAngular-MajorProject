@@ -1,0 +1,34 @@
+<nav class="navbar">
+    <div class="logo"><img class="logo1" src="../../../../assets/icons/appicon.png">FOOD FOR YOU</div>
+    <ul class="nav-links">
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        <div class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">Contact</a></li>
+            <li *ngIf="!currentUser"><a routerLink="/login">User | Admin Login</a></li>
+            <li *ngIf="!currentUser"><a routerLink="/restaurant-login">Restaurant Owner Login</a></li>
+            <li *ngIf="!currentUser"><a routerLink="/registration">Sign up</a></li>
+            <li *ngIf="currentUser"><a (click)="logoutUser()">Logout</a></li>
+        </div>
+    </ul>
+</nav>
+<div class="banner">
+    <h1 style="font-size:7vw;">Eat.Drink.Repeat.</h1>
+</div>
+<mat-grid-list cols="3">
+    <mat-grid-tile *ngFor="let hotel of tutorialArray">
+    <mat-card >
+        <mat-card-header>
+          <mat-card-title  title="{{hotel.restaurantName}}">{{hotel.restaurantName}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image width="400" height="300" src="../../../../assets/images/Restauarants/restaurant-1.jpg" alt="Hotel {{hotel.restaurantName}}">
+        <mat-card-actions>
+            <button mat-raised-button color="warn" (click)="goToHotel(hotel)">Order Now</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+    
+    

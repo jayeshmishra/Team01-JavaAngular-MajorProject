@@ -1,0 +1,52 @@
+<body>
+    <nav class="navbar">
+        <div class="logo"><img class="logo1" src="../../../../assets/icons/appicon.png">FOOD FOR YOU</div>
+        <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+            <div class="menu">
+                <li><a routerLink="">Home</a></li>
+                <li><a href="/">About</a></li>
+                <li><a href="/">Contact</a></li>
+            </div>
+        </ul>
+    </nav>
+    <div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+        <mat-card class="box">
+            <mat-card-header>
+                <mat-card-title>Add Restauarnt</mat-card-title>
+            </mat-card-header>
+            <form class="example-form" [formGroup]="restaurantForm">
+                <mat-card-content>
+                    <mat-form-field class="example-full-width">
+                        <input type="text" matInput placeholder="restaurantName" formControlName="restaurantName" required>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input type="text" matInput placeholder="restaurantUserName" formControlName="restaurantUserName" required>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input type="text" matInput placeholder="restaurantEmail" formControlName="restaurantEmail" required>
+                    </mat-form-field>
+    
+                    <mat-form-field class="example-full-width">
+                        <input type="password" matInput placeholder="Password" formControlName="restaurantPassword" required>
+                    </mat-form-field>
+    
+                    <mat-form-field class="example-full-width">
+                        <input type="password" matInput placeholder="Confirm Password" required>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input type="text" matInput placeholder="area" formControlName="area" required>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input type="text" matInput placeholder="street" formControlName="street" required>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input type="text" matInput placeholder="pincode" formControlName="pincode" required>
+                    </mat-form-field>
+                </mat-card-content>
+                <button mat-stroked-button color="accent" class="btn-block" (click)="onSubmit()">Register</button>
+            </form>
+        </mat-card>
+    </div>
+    </body>
