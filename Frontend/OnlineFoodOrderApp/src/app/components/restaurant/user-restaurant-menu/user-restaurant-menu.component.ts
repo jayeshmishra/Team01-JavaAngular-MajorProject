@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FoodItemService } from 'src/app/service/food-item.service';
+import { UserCartComponent } from '../../user/user-cart/user-cart.component';
 @Component({
   selector: 'app-user-restaurant-menu',
   templateUrl: './user-restaurant-menu.component.html',
-  styleUrls: ['./user-restaurant-menu.component.scss']
+  styleUrls: ['./user-restaurant-menu.component.scss'],
+  providers:[UserCartComponent]
 })
 export class UserRestaurantMenuComponent implements OnInit {
 
@@ -15,7 +17,8 @@ export class UserRestaurantMenuComponent implements OnInit {
   public foodItemList:any;
   constructor(private route : ActivatedRoute,
     private foodItemService:FoodItemService,
-    private router:Router) { }
+    private router:Router,
+    private userCartComponent:UserCartComponent) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => this.restaurantId = params['id']);
@@ -31,4 +34,7 @@ export class UserRestaurantMenuComponent implements OnInit {
 });
   }
 
+  addToCart(foodId:number){;
+    this.router.navigate(['/user-cart' , foodId , 1 , this.restaurantId]);
+  }
 }

@@ -1,1 +1,81 @@
-<p>user-orders works!</p>
+<nav class="navbar">
+    <div class="logo"><img class="logo1" src="../../../../assets/icons/appicon.png">FOOD FOR YOU</div>
+    <ul class="nav-links">
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        <div class="menu">
+            <li><a routerLink="/admin-home">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">Contact</a></li>
+            <li><a routerLink="/add-restaurant">Add Restaurant</a></li>
+        </div>
+    </ul>
+</nav>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<h1 class="pageName">Latest Order</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Order Id</th>
+            <th>Order Status</th>
+            <th>Total Amount</th>
+            <th>Order Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{userOrderDetails.orderId}}</td>
+            <td>{{userOrderDetails.orderStatus}}</td>
+            <td>{{userOrderDetails.totalAmount}}</td>
+            <td>{{userOrderDetails.orderTime | date:'medium'  }}</td>
+        </tr>
+    </tbody>
+</table>
+<h1 class="pageName">All Orders</h1>
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+         All Orders
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <table>
+        <thead>
+            <tr>
+                <th>Order Id</th>
+                <th>Order orderStatus</th>
+                <th>Total Amount</th>
+                <th>Order Time</th>
+                <th>Restaurant Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of allOrders">
+                <td>{{order.orderId}}</td>
+                <td>{{order.orderStatus}}</td>
+                <td>{{order.totalAmount}}</td>
+                <td>{{order.orderTime | date:'medium'}}</td>
+                <td>{{order.restaurantName}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </mat-expansion-panel>
+  </mat-accordion>

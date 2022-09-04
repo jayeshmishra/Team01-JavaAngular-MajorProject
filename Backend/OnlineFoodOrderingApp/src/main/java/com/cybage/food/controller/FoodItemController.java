@@ -81,6 +81,11 @@ public class FoodItemController {
 	public ResponseEntity<List<FoodItem>> getAllFoodItems() {
 		return new ResponseEntity<List<FoodItem>>(foodItemService.findAllFoodItems(), HttpStatus.OK);
 	}
+	
+	@GetMapping("/getFoodItem/{foodId}")
+	public ResponseEntity<FoodItemDetailsDTO> getFoodItem(@PathVariable int foodId) {
+		return new ResponseEntity<FoodItemDetailsDTO>(foodItemService.findFoodItem(foodId), HttpStatus.OK);
+	}
 
 	@GetMapping("/getFoodItemsByRestaurant/{restuarantId}")
 	public ResponseEntity<?> getAllFoodItemsByRestaurant(@PathVariable int restuarantId) {

@@ -1,1 +1,65 @@
-<p>user-cart works!</p>
+<nav class="navbar">
+    <div class="logo"><img class="logo1" src="../../../../assets/icons/appicon.png">FOOD FOR YOU</div>
+    <ul class="nav-links">
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        <div class="menu">
+            <li><a routerLink="/admin-home">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">Contact</a></li>
+            <li><a routerLink="/add-restaurant">Add Restaurant</a></li>
+        </div>
+    </ul>
+</nav>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<h1 class="pageName">Cart</h1>
+<table>
+    <thead>
+        <tr>
+            <th rowspan="4">Order Id</th>
+            <th>Food List</th>
+            <th rowspan="4">Total Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="0">{{cartList.userId}}</td>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Food Id</th>
+                        <th>Qauntity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let in of counter() ;let i = index'>
+                        <td>{{cartList.cart[i].foodId}}</td>
+                        <td>{{cartList.cart[i].quantity}}</td>
+                        <td>{{cartList.cart[i].totalAmount}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <td rowspan="0">{{cartList.totalAmount}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<button (click)="placeOrder()">Place Order</button>

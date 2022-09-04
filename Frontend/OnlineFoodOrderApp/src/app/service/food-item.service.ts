@@ -12,4 +12,8 @@ export class FoodItemService {
   getFoodItems(restaurantId:number):Observable<any>{
     return this.httpClient.get("http://localhost:8080/api/foodapp/fooditem/getFoodItemsByRestaurant/"+restaurantId);
   }
+
+  getFoodItemById(foodId:number){
+    return this.httpClient.get("http://localhost:8080/api/foodapp/fooditem/getFoodItem/"+foodId);
+  }
 }

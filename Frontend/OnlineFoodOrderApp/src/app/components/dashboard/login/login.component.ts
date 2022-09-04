@@ -31,6 +31,9 @@ export class LoginComponent implements OnInit {
                 queryParamsHandling: 'preserve',
                 preserveFragment: true
             };
+            localStorage.setItem('admin' , "admin@cybage.com");
+            this._matSnackBar.open("Admin Logged In", "close", { duration: 2000, panelClass: ['snackBar-success'], horizontalPosition: 'center', verticalPosition: 'top' });
+                
             this.router.navigate(["/admin-home"], navigationExtras);
         }else{
         this.registrationLoginService.login(this.loginForm.value).subscribe(

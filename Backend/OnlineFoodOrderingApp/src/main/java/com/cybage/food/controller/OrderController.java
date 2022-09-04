@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cybage.food.dto.OrderDetailsDTO;
+import com.cybage.food.dto.OrderHistoryDTO;
 import com.cybage.food.entity.FoodItem;
 import com.cybage.food.entity.OrderInfo;
 import com.cybage.food.entity.Restaurant;
@@ -62,7 +63,7 @@ public class OrderController {
 	@GetMapping("/getAllOrdersForUser/{userId}")
 	public ResponseEntity<?> getAllOrdersForUser(@PathVariable int userId) throws CustomException {
 		User user = userService.findByUserId(userId);
-		List<UserOrder> orders = userOrderService.getAllOrderForUser(user);
+		List<OrderHistoryDTO> orders = userOrderService.getAllOrderForUser(user);
 		return new ResponseEntity<>(orders, HttpStatus.OK);
 	}
 
