@@ -6,10 +6,10 @@
             <label for="checkbox_toggle" class="hamburger">&#9776;</label>
             <div class="menu">
                 <li><a routerLink="/admin-home">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li><a routerLink="/about">About</a></li>
                 <li><a routerLink="/get-all-user">All User</a></li>
                 <li><a routerLink="/get-all-restaurant">All Restaurant</a></li>
+                <li><a *ngIf="admin" (click)="logoutAdmin()">Logout</a></li>
             </div>
         </ul>
     </nav>
@@ -47,7 +47,7 @@
                         <input type="text" matInput placeholder="pincode" formControlName="pincode" required>
                     </mat-form-field>
                 </mat-card-content>
-                <button mat-stroked-button color="accent" class="btn-block" (click)="onSubmit()">Register</button>
+                <button mat-stroked-button color="accent" class="btn-block" (click)="onSubmit()" [disabled]="!restaurantForm.valid">Add Restaurant</button>
             </form>
         </mat-card>
     </div>

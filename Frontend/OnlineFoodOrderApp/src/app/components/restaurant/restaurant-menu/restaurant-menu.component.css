@@ -178,4 +178,7 @@ h3 {
     flex-direction: column;
   }
 }
+mat-card {
+  width: 300px;
+}
 /*# sourceMappingURL=restaurant-menu.component.css.map */

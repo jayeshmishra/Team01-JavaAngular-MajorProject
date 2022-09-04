@@ -2,6 +2,8 @@ package com.cybage.food.controller;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +38,8 @@ public class UserController {
 	
 	@Autowired
 	UserMapper userMapper;
+	
+	static Logger logger=LogManager.getLogger(UserController.class);
 
 	@PostMapping("/registration")
 	public ResponseEntity<UserDTO> registerUser(@RequestBody UserDTO userDto) {
@@ -48,7 +52,7 @@ public class UserController {
 	
 		try {
 			String url = "http://localhost:8082/api/foodapp/loginService/login";
-		
+			logger.info("Customer "+userDto.getUserName()+" logged in");
 			return (ResponseEntity<String>) restTemplate.postForEntity(url, userDto, String.class);
 		} catch (HttpStatusCodeException ex) {
 			if (ex.getRawStatusCode() == 404)

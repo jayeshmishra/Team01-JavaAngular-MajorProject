@@ -20,5 +20,9 @@ export class RegistrationLoginService {
   restaurantLogin(restaurantOwner:any){
     return this._httpClient.post<any>("http://localhost:8080/api/foodapp/rest/login" , restaurantOwner );
   }
+
+  sendOTP(userEmail:any){
+    return this._httpClient.post("http://localhost:8080/api/foodapp/sendOTP" ,userEmail);
+  }
 }
 

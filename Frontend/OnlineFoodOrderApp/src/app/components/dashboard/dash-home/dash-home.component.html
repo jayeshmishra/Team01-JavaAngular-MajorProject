@@ -4,9 +4,8 @@
         <input type="checkbox" id="checkbox_toggle" />
         <label for="checkbox_toggle" class="hamburger">&#9776;</label>
         <div class="menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/">About</a></li>
-            <li><a href="/">Contact</a></li>
+            <li><a routerLink="">Home</a></li>
+            <li><a *ngIf="currentUser" routerLink="/about">About</a></li>
             <li *ngIf="!currentUser"><a routerLink="/login">User | Admin Login</a></li>
             <li *ngIf="!currentUser"><a routerLink="/restaurant-login">Restaurant Owner Login</a></li>
             <li *ngIf="!currentUser"><a routerLink="/registration">Sign up</a></li>

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RestaurantService } from 'src/app/service/restaurant.service';
 
@@ -14,13 +15,14 @@ export class AddFoodItemsComponent implements OnInit {
   constructor(private fb:FormBuilder ,
     private router:Router , 
     private restaurantService:RestaurantService,
-    private httpClient:HttpClient,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private _matSnackBar:MatSnackBar
    ) { }
 
    public myParam:any;
-
+   restaurantOwner:any;
   ngOnInit(): void {
+    this.restaurantOwner = localStorage.getItem('restaurantOwner');
     this.route.params.subscribe((params: Params) => this.myParam = params['id']);
   }
   foodItemForm:FormGroup=this.fb.group({       
@@ -41,5 +43,10 @@ export class AddFoodItemsComponent implements OnInit {
       this.router.navigate(['/restaurant-menu', this.myParam]);
     });
     
+  }
+  logoutRestaurantOwner(){
+    localStorage.removeItem('restaurantOwner');
+    this._matSnackBar.open("Logged Out", "close", { duration: 2000, panelClass: ['snackBar-error'], horizontalPosition: 'center', verticalPosition: 'top' });
+    this.router.navigate([''])
   }
 }

@@ -1,0 +1,91 @@
+<nav class="navbar">
+    <div class="logo"><img class="logo1" src="../../../../assets/icons/appicon.png">FOOD FOR YOU</div>
+    <ul class="nav-links">
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        <div class="menu">
+            <li><a *ngIf="admin" routerLink="/admin-home">Home</a></li>
+            <li><a *ngIf="currentUser" routerLink="">Home</a></li>
+            <li><a *ngIf="restaurantOwner" routerLink="/restaurant-owner-home">Home</a></li>
+        </div>
+    </ul>
+</nav>
+<body>
+    <h2>About Us</h2>
+    <br>
+    <div class="intro">
+     <span class="who">Who we are ?</span> 
+     Customers use our platform to search and discover restaurants, read and write customer generated reviews and view and upload photos, order food delivery, book a table and make payments while dining-out at restaurants. On the other hand, we provide restaurant partners with industry-specific marketing tools which enable them to engage and acquire customers to grow their business while also providing a reliable and efficient last mile delivery service. We also operate a one-stop procurement solution, Hyperpure, which supplies high quality ingredients and kitchen products to restaurant partners. We also provide our delivery partners with transparent and flexible earning opportunities.</div>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card" style="width: 20rem;">
+            <img src="../../../assets/images/pexels-chan-walrus-958545.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">The love for food knows no boundaries</h5>
+              <p class="card-text">What if we told you that you can now experience the charm of any city sitting at home? What if the food you crave from your beloved city could hop on a flight and reach you the very next day?
+                Each city of India has a unique character – made of its history, people, culture, and legendary food. When you think of Kolkata.
+              </p>
+            
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 20rem;">
+            <img src="../../../assets/images/pexels-devon-rockola-954677.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">How we make our Search more conversational and inclusive?</h5>
+              <p class="card-text">Generally, domain-specific search systems are optimised for single intent type queries. For instance, at an e-commerce site selling electronics, it will pertain to items like mobiles, chargers, power banks, etc. For an apparel site, it would be around dresses, shirts, pants, etc.  </p>
+            
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 20rem;">
+            <img src="../../../assets/images/pexels-ella-olsson-1640773.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Powering restaurant ads on Zomato via Machine Learning</h5>
+              <p class="card-text">There’s a popular saying that ‘great ads are those which don’t feel like ads’. The statement holds true in every case, be it a television advertisement, a newspaper commercial, or a digital ad. In our case, it is the latter-most, wherein we show promoted restaurants to customers on our app. </p>
+          
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h3>Our Team</h3>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="card" style="width: 15rem;">
+                <img src="../../../assets/images/dev.png" class="card-img-top-dev" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Dhananjay Deshmukh</h5>
+                  <p class="card-text">Cybage Software Pvt Ltd</p>
+                </div>
+              </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 15rem;">
+                <img src="../../../assets/images/dev.png" class="card-img-top-dev" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Chetan Bhalkare</h5>
+                  <p class="card-text">Cybage Software Pvt Ltd</p>
+                </div>
+              </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 15rem;">
+                <img src="../../../assets/images/dev.png" class="card-img-top-dev" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Bhushan Nagane</h5>
+                  <p class="card-text">Cybage Software Pvt Ltd</p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer"></footer>
+</body>
+
+

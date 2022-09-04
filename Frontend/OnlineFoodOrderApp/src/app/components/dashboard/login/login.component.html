@@ -6,8 +6,8 @@
         <label for="checkbox_toggle" class="hamburger">&#9776;</label>
         <div class="menu">
             <li><a routerLink="">Home</a></li>
-            <li><a href="/">About</a></li>
-            <li><a href="/">Contact</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
         </div>
     </ul>
 </nav>
@@ -28,8 +28,10 @@
                     </mat-form-field>
                     <div class="error" class="text-danger" *ngIf="loginForm.controls['userEmail'].hasError('required') && loginForm.controls['userEmail'].touched">Password is required</div>
                 </mat-card-content>
-                <button mat-stroked-button type="button" color="accent" class="btn-block" (click)="login()">Log in</button>
+                <button mat-stroked-button type="button" color="accent" class="btn-block" (click)="login()">Log in</button>OR
             </form>
+            <p><a routerLink="/otp-login">Login with OTP</a></p>
+           <p> Don't have user account ? <a routerLink="/registration">Signup Here</a></p>
         </mat-card>
     </div>
 </body>

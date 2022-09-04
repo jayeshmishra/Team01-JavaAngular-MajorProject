@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/service/admin.service';
 import { RestaurantService } from 'src/app/service/restaurant.service';
@@ -12,11 +13,13 @@ export class AllRestaurantsComponent implements OnInit {
 
   constructor(private restaurantService:RestaurantService,
     private router:Router,
-    private adminService:AdminService) { }
+    private adminService:AdminService,
+    private _matSnackBar:MatSnackBar) { }
 
     restaurantList:any
-
+    admin:any;
   ngOnInit(): void {
+    this.admin=localStorage.getItem('admin');
   this.restaurantService.getAllRestaurant().subscribe(
     data=>{
       console.log(data);
@@ -47,5 +50,12 @@ export class AllRestaurantsComponent implements OnInit {
       }
     )
    
+  }
+  logoutAdmin(){
+    
+    this._matSnackBar.open("Admin Logged Off", "close", { duration: 2000, panelClass: ['snackBar-error'], horizontalPosition: 'center', verticalPosition: 'top' });  
+    localStorage.removeItem('admin');
+    this.router.navigate([''])
+
   }
 }

@@ -16,4 +16,8 @@ export class UserService {
   getAllOrdersOfUser(userId:any){
     return this.httpClient.get("http://localhost:8080/api/foodapp/order/getAllOrdersForUser/"+userId);
   }
+
+  getUser(userEmail:any){
+    return this.httpClient.get("http://localhost:8080/api/foodapp/getUserByEmail/"+userEmail);
+  }
 }
