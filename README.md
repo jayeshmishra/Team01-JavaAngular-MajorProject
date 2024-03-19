@@ -1,1 +1,1 @@
-# Team01-JavaAngular-MajorProject
+# Team01-JavaAngular-Major
